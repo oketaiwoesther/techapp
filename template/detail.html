@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Detail
+{% endblock title %}
+
+
+{% block body %}
+
+<div class="container">
+    <div class="row p-3">
+        <h2>Detail View</h2>
+        <div class="col-md-8">
+            <img class="img-thumbnail" src="{{object.image.url}}" alt="{{object}}" style="width:100%; height:auto">
+        </div>
+        <div class="col-md-4 p-3">
+            <h2>{{object.title}}</h2>
+            <p>{{object.discriptions}}</p>
+            <a class="btn btn-danger float-end" href="{% url 'delete' pk=post.pk %}">Delete</a>
+            <a class="btn btn-info float-start" href="{% url 'update' pk=post.pk %}">Update</a>
+        </div>
+    </div>
+</div>
+{% endblock body %}

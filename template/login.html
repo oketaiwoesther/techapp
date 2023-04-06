@@ -1,0 +1,73 @@
+{% block body %}
+
+<div class="container p-5 box">
+  <h1>Login</h1>
+  {% if error_message %}
+    <p>{{ error_message }}</p>
+  {% endif %}
+  <form method="post" class="login-form  ">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="m-5 btn btn-success" type="submit">Login</button>
+  </form>
+  <h5>Don't have an account <strong><a href="{% url 'register' %}"> Sign up</a></strong></h5>
+</div>
+
+<style>
+  .emoji {
+    display: inline-block;
+    animation: emoji 1s infinite alternate;
+  }
+  .box{
+    margin: 15rem auto; 
+    color:white; 
+    text-align: center;  
+    width:30vw; 
+    height: 50%; 
+    box-shadow: 0 15px 25px #102741;
+    box-sizing: border-box; 
+    background: linear-gradient(#54575e,#06ee7a);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 24px;
+  }
+  input{
+    margin-bottom: 2rem;
+    width:15vw;
+    height: 2rem;
+  }
+  a{
+    color:rgb(136, 136, 228);
+  }
+  .login-btn{
+    transition: 5s;
+    font-size: 24px;
+    border-radius: 5px;
+    width: 6vw;
+  }
+  .login-btn:hover{
+    background-color:#00FFFF	;
+    color: #141e30;
+    border-radius: 15px;
+    box-shadow: 0 0 5px #00FFFF,
+    0 0 25px #00FFFF	,
+    0 0 50px #00FFFF	,
+    0 0 100px #00FFFF,
+    0 0 150px #00FFFF	
+  }
+  @keyframes emoji {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(50%);
+    }
+  }
+  </style>
+
+
+
+
+
+{% endblock body %}
